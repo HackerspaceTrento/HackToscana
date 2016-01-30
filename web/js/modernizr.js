@@ -1,0 +1,1 @@
+../lib/bootstrap-slider/dependencies/js/modernizr.js
