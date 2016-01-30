@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+
+    <link href="css/radar.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="../web/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../web/css/layout.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <link rel="stylesheet" href="../web/lib/leaflet/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="../web/lib/mapzen/leaflet.routing.mapzen.css" />
+    <link href="../web/lib/slider/nouislider.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></<s></s>cript>
+    <![endif]-->
+
+<style>
+<style>
+#range1 {
+    height: 88%;
+    margin: 5% auto;
+}
+#value-span,
+#value-input {
+    width: 50%;
+    float: left;
+    display: block;
+    text-align: center;
+    margin: 0;
+}
+#toggle1 {
+   height: 88%;
+   margin: 5% auto;
+}
+#toggle1.off .noUi-handle {
+    border-color: red;
+}
+</style>
+
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div id="wrapper">
+        <div class="col-lg-8 col-xs-12 map"><div id="map"></div></div>
+        <div class="col-lg-4 col-xs-12 sidebar">
+          <!-- <h2>sidebar</h2> -->
+          <div class="col-lg-12 col-xs-4 sidebar-widget infographic"><h3>infographic</h3></div>
+          <div class="col-lg-12 col-xs-4 sidebar-widget score">
+              <div id="radar-container">
+                  <div class="sc michele">michele</div>
+                  <div class="sc marco">marco</div>
+                  <div class="sc anita">anita</div>
+                  <div class="sc anna">anna</div>
+                  <canvas id="radar" height="100%"></canvas>
+              </div>
+          </div>
+          <div class="col-lg-12 col-xs-4 sidebar-widget search">
+              <div class="col-xs-4"><div id="range1"></div></div>
+              <div class="col-xs-4"><div id="toggle1"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script src="../web/lib/leaflet/leaflet-routing-machine.js"></script>
+    <script src="../web/lib/mapzen/lrm-mapzen.js"></script>
+    <script src="../web/lib/slider/nouislider.min.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../web/js/bootstrap.min.js"></script>
+    <script src="../web/js/bootstrap-toolkit.min.js"></script>
+
+    <!-- chartjs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+    <script src="js/radar.js"></script>
+
+    <script>
+    // var slider1 = document.getElementById('range1');
+    // noUiSlider.create(slider1, {
+    //     start: 127, // Handle start position
+    //     step: 10, // Slider moves in increments of '10'
+    //     connect: 'lower', // Display a colored bar between the handles
+    //     direction: 'rtl', // Put '0' at the bottom of the slider
+    //     orientation: 'vertical', // Orient the slider vertically
+    //     range: { // Slider can select '0' to '100'
+    //         'min': 0,
+    //         'max': 100
+    //     },
+    //     pips: { // Show a scale with the slider
+    //         mode: 'steps',
+    //         density: 2
+    //     }
+    // });
+    // 
+    // var toggle1 = document.getElementById('toggle1');
+    // noUiSlider.create(toggle1, {
+    //     orientation: "vertical",
+    //     start: 0,
+    //     range: {
+    //         'min': [0, 1],
+    //         'max': 1
+    //     }
+    // })
+    // toggle1.noUiSlider.on('update', function( values, handle ){
+    //     if ( values[handle] === '1' ) {
+    //         toggle1.className += ' off';
+    //     } else {
+    //         toggle1.className = toggle1.className.slice(0, -4);
+    //     }
+    // });
+
+
+    // var map = L.map('map').setView([43.7777988,11.2344857], 13);
+    // 
+    // L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
+    //     maxZoom: 18,
+    //     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+    //         '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+    //         'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    //     id: 'mapbox.streets'
+    // }).addTo(map);
+    // 
+    // L.Routing.control({
+    //     waypoints: [
+    //         L.latLng(43.7780042,11.2449093),
+    //         L.latLng(43.7749619,11.2538762),
+    //         L.latLng(43.774317,11.267622),
+    //         L.latLng(43.7701208,11.2672878)
+    //     ],
+    //     router: L.Routing.mapzen('valhalla-48_NtvI', 'pedestrian'), 
+    //     formatter: new L.Routing.Mapzen.Formatter(), 
+    //     summaryTemplate:'<div class="start">{name}</div><div class="info {transitmode}">{distance}, {time}</div>',
+    //     routeWhileDragging: true
+    // }).addTo(map);
+
+
+    (function($, viewport){
+      var cur_size;
+
+      function update_body_layout_class() {
+        var $body    = $('body'),
+            new_size = viewport.current();
+        $body.removeClass(cur_size);
+        $body.addClass(new_size);
+        cur_size = new_size;
+      }
+
+      $(function () {
+        update_body_layout_class();
+        $(window).resize(viewport.changed(update_body_layout_class));
+      });
+    })(jQuery, ResponsiveBootstrapToolkit);</script>
+  </body>
+</html>
