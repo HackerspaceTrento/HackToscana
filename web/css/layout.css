@@ -1,10 +1,10 @@
 .map {
-  background: #F00;
+  /*background: #F00;*/
   height: 60%;
 }
 
 .sidebar {
-  background: #0F0;
+  /*background: #0F0;*/
   height: 40%;
 }
 
@@ -15,7 +15,7 @@
 
 .sidebar-widget {
   height: 100%;
-  border: solid black;
+  /*border: solid black;*/
 }
 
 .lg .sidebar-widget {
@@ -23,7 +23,7 @@
 }
 
 .score {
-  background: #7F0;
+  /*background: #7F0;*/
 }
 
 #wrapper {

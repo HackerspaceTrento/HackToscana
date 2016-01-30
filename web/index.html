@@ -7,6 +7,8 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Bootstrap 101 Template</title>
 
+    <link href="css/radar.css" rel="stylesheet">
+
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-slider.min.css" rel="stylesheet">
@@ -59,14 +61,23 @@
         <div class="col-lg-4 col-xs-12 sidebar">
           <!-- <h2>sidebar</h2> -->
           <div class="col-lg-12 col-xs-4 sidebar-widget infographic"><h3>infographic</h3></div>
-          <div class="col-lg-12 col-xs-4 sidebar-widget score"><h3>score</h3></div>
+          <div class="col-lg-12 col-xs-4 sidebar-widget score">
+              <div id="radar-container">
+                  <div class="sc michele">michele</div>
+                  <div class="sc marco">marco</div>
+                  <div class="sc anita">anita</div>
+                  <div class="sc anna">anna</div>
+                  <canvas id="radar" height="100%"></canvas>
+              </div>
+          </div>
           <div class="col-lg-12 col-xs-4 sidebar-widget search">
             <form action="" class="search-form">
               <div class="slider-wrapper col-xs-6">
-                <input id="sustainability" name="sustainability" data-slider-id='sustainabilitySlider' class="bootstrap-slider float-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="14" data-slider-orientation="vertical" data-slider-reversed="true" />
-                <input id="health" name="health" data-slider-id='healthSlider' class="bootstrap-slider float-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="14" data-slider-orientation="vertical" data-slider-reversed="true" />
-                <input id="nature" name="nature" data-slider-id='natureSlider' class="bootstrap-slider float-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="14" data-slider-orientation="vertical" data-slider-reversed="true" />
-                <input id="beauty" name="beauty" data-slider-id='beautySlider' class="bootstrap-slider float-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="14" data-slider-orientation="vertical" data-slider-reversed="true" />
+                <input id="sustainability" name="sustainability" data-slider-id='sustainabilitySlider' class="bootstrap-slider float-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
+                <input id="health" name="health" data-slider-id='healthSlider' class="bootstrap-slider float-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
+                <input id="nature" name="nature" data-slider-id='natureSlider' class="bootstrap-slider float-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
+                <input id="beauty" name="beauty" data-slider-id='beautySlider' class="bootstrap-slider float-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
+                <input id="time" name="time" data-slider-id='timeSlider' class="bootstrap-slider float-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
               </div>
               <div class="switch-wrapper col-xs-6">
                 <input type="checkbox" id="food" name="food" class="bootstrap-switch" checked />
@@ -84,6 +95,11 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- chartjs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+    <script src="js/radar.js"></script>
+
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-toolkit.min.js"></script>
