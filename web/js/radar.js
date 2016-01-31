@@ -208,6 +208,8 @@ $(function(){
             $('.sc.anita').click();
         } else if (event.which == 52) {
             $('.sc.anna').click();
+        } else if (event.which == 57) {
+            window.location='99.html';
         }
     });
 })
