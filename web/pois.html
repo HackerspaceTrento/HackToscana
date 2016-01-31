@@ -13,16 +13,11 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-slider.min.css" rel="stylesheet">
     <link href="css/bootstrap-switch.min.css" rel="stylesheet">
-
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-
     <link href="css/layout.css" rel="stylesheet">
 
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
     <link rel="stylesheet" href="lib/leaflet/leaflet-routing-machine.css" />
     <link rel="stylesheet" href="lib/mapzen/leaflet.routing.mapzen.css" />
-
-    <link rel="stylesheet" href="css/jquery.circliful.css" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,11 +26,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <style>
-
-/* body { */
-/*     overflow: hidden; */
-/* } */
-
 .slider.slider-vertical {
   height: 100%;
 }
@@ -45,32 +35,17 @@
 }
 
 .slider-wrapper {
-  height: 70%;
-  width: 70%;
-}
-
-.slider-single {
-  height: 100%;
-  width: 20%;
-}
-
-.slider-wrapper .slider {
-  margin: auto 2%;
-}
-
-.slider-single i {
-  display: block;
-  margin-bottom: 20px;
+  height: 80%;
+  margin: 9% auto;
 }
 
 .switch-wrapper {
   height: 40%;
-  width: 30%;
-  margin: 15% auto;
+  margin: 30% auto;
 }
 
-.switch-wrapper div i {
-  display: block;
+.slider-wrapper .slider {
+  margin: auto 2%;
 }
 
 .switch-wrapper .bootstrap-switch {
@@ -85,12 +60,7 @@
         <div class="col-lg-8 col-xs-12 map"><div id="map"></div></div>
         <div class="col-lg-4 col-xs-12 sidebar">
           <!-- <h2>sidebar</h2> -->
-          <div class="col-lg-12 col-xs-4 sidebar-widget infographic">
-            <div class="badge-chart">
-              <!-- <div id="badge" data&#45;dimension="250"></div> -->
-            </div>
-            <div class="badge-img"><img src="asd" /></div>
-          </div>
+          <div class="col-lg-12 col-xs-4 sidebar-widget infographic"><h3>infographic</h3></div>
           <div class="col-lg-12 col-xs-4 sidebar-widget score">
               <div id="radar-container">
                   <div class="sc michele">michele</div>
@@ -102,37 +72,16 @@
           </div>
           <div class="col-lg-12 col-xs-4 sidebar-widget search">
             <form action="" class="search-form">
-              <div class="slider-wrapper pull-left">
-                <div class="slider-single pull-left">
-                  <i class="fa fa-leaf fa-2x"></i>
-                  <input id="sustainability" name="sustainability" data-slider-id='sustainabilitySlider' class="bootstrap-slider pull-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
-                </div>
-                <div class="slider-single pull-left">
-                  <i class="fa fa-heartbeat fa-2x"></i>
-                  <input id="health" name="health" data-slider-id='healthSlider' class="bootstrap-slider pull-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
-                </div>
-                <div class="slider-single pull-left">
-                  <i class="fa fa-tree fa-2x"></i>
-                  <input id="nature" name="nature" data-slider-id='natureSlider' class="bootstrap-slider pull-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
-                </div>
-                <div class="slider-single pull-left">
-                  <i class="fa fa-fort-awesome fa-2x"></i>
-                  <input id="beauty" name="beauty" data-slider-id='beautySlider' class="bootstrap-slider pull-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
-                </div>
-                <div class="slider-single pull-left">
-                  <i class="fa fa-clock-o fa-2x"></i>
-                  <input id="time" name="time" data-slider-id='timeSlider' class="bootstrap-slider pull-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
-                </div>
+              <div class="slider-wrapper col-xs-6">
+                <input id="sustainability" name="sustainability" data-slider-id='sustainabilitySlider' class="bootstrap-slider float-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
+                <input id="health" name="health" data-slider-id='healthSlider' class="bootstrap-slider float-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
+                <input id="nature" name="nature" data-slider-id='natureSlider' class="bootstrap-slider float-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
+                <input id="beauty" name="beauty" data-slider-id='beautySlider' class="bootstrap-slider float-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
+                <input id="time" name="time" data-slider-id='timeSlider' class="bootstrap-slider float-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
               </div>
-              <div class="switch-wrapper pull-left">
-                <div class="col-xs-12 text-center">
-                  <i class="fa fa-cutlery fa-2x"></i>
-                  <input type="checkbox" id="food" name="food" class="bootstrap-switch" />
-                </div>
-                <div class="col-xs-12 text-center">
-                  <i class="fa fa-shopping-cart fa-2x"></i>
-                  <input type="checkbox" id="shopping" name="shopping" class="bootstrap-switch" />
-                </div>
+              <div class="switch-wrapper col-xs-6">
+                <input type="checkbox" id="food" name="food" class="bootstrap-switch" checked />
+                <input type="checkbox" id="shopping" name="shopping" class="bootstrap-switch" checked />
               </div>
             </form>
           </div>
@@ -156,8 +105,6 @@
     <script src="js/bootstrap-toolkit.min.js"></script>
     <script src="js/bootstrap-slider.min.js"></script>
     <script src="js/bootstrap-switch.min.js"></script>
-
-    <script src="js/jquery.circliful.min.js"></script>
     <script>
     var map,
     route;
@@ -190,7 +137,23 @@ $(function () {
         '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
         'Imagery © <a href="http://mapbox.com">Mapbox</a>',
         id: 'mapbox.streets'
-        }).addTo(map);
+    }).addTo(map);
+
+    // route = L.Routing.control({
+    //   waypoints: [
+    //     L.latLng(43.7780042,11.2449093),
+    //     L.latLng(43.7749619,11.2538762),
+    //     // L.latLng(43.768512,11.2551968),
+    //     // L.latLng(43.774317,11.267622),
+    //     L.latLng(43.7701925,11.2575415),
+    //     L.latLng(43.7701208,11.2672878),
+    //     // L.latLng(43.770723,11.2661737),
+    //   ],
+    //   router: L.Routing.mapzen('valhalla-48_NtvI', 'pedestrian'), 
+    //   formatter: new L.Routing.Mapzen.Formatter(), 
+    //   summaryTemplate:'<div class="start">{name}</div><div class="info {transitmode}">{distance}, {time}</div>',
+    //   routeWhileDragging: true, show: false
+    // }).addTo(map);
   }
 
   function updatePath() {
@@ -204,7 +167,11 @@ $(function () {
         L.latLng(43.7780042,11.2449093),
         L.latLng(43.7749619,11.2538762),
         L.latLng(43.774317,11.267622),
-        L.latLng(43.7701208,11.2672878)
+        L.latLng(43.7701208,11.2672878),
+        L.latLng(43.768512,11.2551968),
+        L.latLng(43.770193,11.2624423),
+        L.latLng(43.7701925,11.2575415),
+        L.latLng(43.770723,11.2661737)
       ],
       router: L.Routing.mapzen('valhalla-48_NtvI', 'pedestrian'), 
       formatter: new L.Routing.Mapzen.Formatter(), 
@@ -215,7 +182,12 @@ $(function () {
     route = L.Routing.control({
       waypoints: [
         L.latLng(43.7780042,11.2449093),
-        L.latLng(43.7701208,11.2672878)
+        L.latLng(43.7701208,11.2672878),
+        L.latLng(43.7714265,11.2529475),
+        L.latLng(43.7706689,11.257654),
+        L.latLng(43.772708,11.2564688),
+        L.latLng(43.7698443,11.2614104),
+        L.latLng(43.7713716,11.2627319)
       ],
       router: L.Routing.mapzen('valhalla-48_NtvI', 'pedestrian'), 
       formatter: new L.Routing.Mapzen.Formatter(), 
@@ -236,63 +208,8 @@ $(function () {
 
   $('.search-form .slider-wrapper :input').change(updatePath);
   $('.search-form .switch-wrapper :input').on('switchChange.bootstrapSwitch', updatePath);
-
-  // $('#badge').circliful();
+  
 });
-
-  var $badge_img = $('.badge-img'),
-      $badge_chart = $('.badge-chart'),
-      $badge = $('#badge', $badge_chart);
-
-  function showBadge(person) {
-    var personData = peopleData[person];
-    if (personData.winner) {
-      showBadgeImage(personData);
-    } else {
-      showBadgeChart(personData);
-    }
-  }
-
-  function showBadgeImage(personData) {
-    $badge_chart.hide();
-    $badge_img.show();
-    $badge_img.attr('src', 'img/' + personData.path);
-  }
-
-  function showBadgeChart(personData) {
-    $badge_img.hide();
-    $badge_chart.html(buildChart(personData.chart_cfg));
-    $badge_chart.show();
-  }
-
-  function buildChart(data) {
-    var addData = function (s){
-      var r = { id : 'badge'};
-      for (k in s) { r['data-' + k] = s[k]; }
-      return r;
-    },
-    tt = $('<div/>', addData(data));
-    tt.circliful();
-    return tt;
-  }
-
-// showBadgeChart({ chart_cfg : {
-//       dimension:"250",
-//       text:"35%",
-//       info:"New Clients",
-//       width:30,
-//       fontsize:38,
-//       percent:35,
-//       fgcolor:"#61a9dc",
-//       bgcolor:"#eee",
-//       fill:"#ddd",
-//       total:200,
-//       part:35,
-//       icon:"long-arrow-up",
-//       iconsize:28,
-//       iconcolor:"#fff"
-// }});
-
 
     (function($, viewport){
       var cur_size;
