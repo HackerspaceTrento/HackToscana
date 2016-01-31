@@ -22,7 +22,9 @@ var peopleData = {
               icon:"long-arrow-up",
               iconsize:28,
               iconcolor:"#fff"
-        }
+        },
+        profile_img:'michele_small.jpg',
+        profile_left: '80px'
     },
     marco: {
         radarData: [ 32, 61, 5, 4, 51 ],
@@ -47,7 +49,9 @@ var peopleData = {
               icon:"long-arrow-up",
               iconsize:28,
               iconcolor:"#fff"
-        }
+        },
+        profile_img:'marco_small.jpg',
+        profile_left: '115px'
     },
     anita: {
         radarData: [ 40, 45, 37, 64, 5 ],
@@ -80,7 +84,9 @@ var peopleData = {
               iconsize:28,
               iconcolor:"#fff"
         },
-        mangiare:true
+        mangiare:true,
+        profile_img:'anita_small.jpg',
+        profile_left: '135px'
     },
     anna: {
         radarData: [ 50, 45, 59, 35, 2 ],
@@ -116,7 +122,10 @@ var peopleData = {
               iconcolor:"#fff"
         },
         spesa:true,
-        winner:true, path:'anna.png'
+        winner:true,
+        profile_img:'anna_small.jpg',
+        profile_left: '150px',
+        path:'anna_badge.png'
     }
 };
 
@@ -137,15 +146,21 @@ var data = {
 };
 var radar = document.getElementById("radar");
 var ctx = radar.getContext("2d");
-var myRadarChart = new Chart(ctx).Radar(data, {});
+var myRadarChart = new Chart(ctx).Radar(data, {
+    pointLabelFontSize : 18
+});
 
 $(function(){
     $('#radar-container .sc').click(function(e){
         var person_name = $(e.target).text();
         var person = peopleData[person_name];
 
+        setProfile(person_name);
+
         data.datasets[0].data = person.radarData;
-        myRadarChart = new Chart(ctx).Radar(data, {});
+        myRadarChart = new Chart(ctx).Radar(data, {
+            pointLabelFontSize : 18
+        });
 
         $('#sustainability').slider('setValue',person.sliderData[0]);
         $('#health').slider('setValue',person.sliderData[1]);
@@ -162,7 +177,8 @@ $(function(){
               router: L.Routing.mapzen('valhalla-48_NtvI', person.mezzo), 
               formatter: new L.Routing.Mapzen.Formatter(), 
               summaryTemplate:'<div class="start">{name}</div><div class="info {transitmode}">{distance}, {time}</div>',
-              routeWhileDragging: true, show: false
+              routeWhileDragging: true,
+              show: false
             }).addTo(map);
         }
         

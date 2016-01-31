@@ -42,3 +42,85 @@
   width:120px;
   margin-top:2em;
 }
+
+.leaflet-routing-container {
+  display: none;
+}
+
+.slider.slider-vertical {
+  height: 100%;
+}
+
+.search-form {
+  height: 100%;
+}
+
+.slider-wrapper {
+  height: 70%;
+  width: 70%;
+}
+
+.slider-single {
+  height: 100%;
+  width: 20%;
+}
+
+.slider-wrapper .slider {
+  margin: auto 2%;
+}
+
+.slider-single i {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.switch-wrapper {
+  height: 40%;
+  width: 30%;
+  margin: 15% auto;
+}
+
+.switch-wrapper div i {
+  display: block;
+}
+
+.switch-wrapper .bootstrap-switch {
+  margin: 7% auto;
+}
+
+.profile-wrapper {
+  display: none;
+}
+
+.profile-card {
+  position: fixed;
+  right: 40%;
+  top: 20%;
+  z-index: 50;
+}
+
+.profile-card .profile-name {
+  position: absolute;
+  color: white;
+  font-size: 7em;
+  text-align: center;
+  top: 170px;
+  left: 100px;
+  text-shadow: 0 0 5px #000;
+}
+
+
+.profile-card.side {
+  transition: all 1s;
+  width: 5%;
+  right: 25px;
+  top: 25px;
+}
+
+.profile-card.side img {
+  width: 100%;
+}
+
+.profile-card.side .profile-name {
+  display: none;
+}
