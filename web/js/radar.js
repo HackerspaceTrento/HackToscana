@@ -9,7 +9,16 @@ var peopleData = {
     },
     anita: {
         radarData: [ 40, 45, 37, 64, 5 ],
-        sliderData: [ 1, 1, 1, 3, 1 ]
+        sliderData: [ 1, 1, 1, 3, 1 ],
+        waypoints: [
+            L.latLng(43.7780042,11.2449093),
+            L.latLng(43.7749619,11.2538762),
+            // L.latLng(43.768512,11.2551968),
+            // L.latLng(43.774317,11.267622),
+            L.latLng(43.7701925,11.2575415),
+            L.latLng(43.7701208,11.2672878),
+            // L.latLng(43.770723,11.2661737),
+        ]
     },
     anna: {
         radarData: [ 50, 45, 59, 35, 2 ],
@@ -48,5 +57,18 @@ $(function(){
         $('#nature').slider('setValue',person.sliderData[2]);
         $('#beauty').slider('setValue',person.sliderData[3]);
         $('#time').slider('setValue',person.sliderData[4]);
+        
+        if (person.waypoints) {
+            if (route) {
+              route.removeFrom(map);
+            }
+            route = L.Routing.control({
+              waypoints: person.waypoints,
+              router: L.Routing.mapzen('valhalla-48_NtvI', 'pedestrian'), 
+              formatter: new L.Routing.Mapzen.Formatter(), 
+              summaryTemplate:'<div class="start">{name}</div><div class="info {transitmode}">{distance}, {time}</div>',
+              routeWhileDragging: true, show: false
+            }).addTo(map);
+        }
     });
 })
