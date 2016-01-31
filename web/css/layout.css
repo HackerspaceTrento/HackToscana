@@ -1,5 +1,5 @@
 .map {
-  height: 60%;
+  height: 100%;
 }
 
 .sidebar {
@@ -29,6 +29,16 @@
   display: inline-block;
 }
 
+.badge-chart {
+    padding-left:10%;
+}
+
 .badge-img {
   display: none;
+  text-align: center;
+}
+
+.badge-img img {
+  width:120px;
+  margin-top:2em;
 }

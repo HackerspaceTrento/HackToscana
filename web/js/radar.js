@@ -6,7 +6,23 @@ var peopleData = {
             L.latLng(43.7780042,11.2449093),
             L.latLng(43.7701208,11.2672878),
         ],
-        mezzo: 'auto'
+        mezzo: 'auto',
+        chart_cfg: {
+              dimension:"250",
+              text:"3%",
+              info:"sconto 5% per autobus",
+              width:30,
+              fontsize:38,
+              percent:3,
+              fgcolor:"#61a9dc",
+              bgcolor:"#eee",
+              fill:"#ddd",
+            //   total:200,
+            //   part:35,
+              icon:"long-arrow-up",
+              iconsize:28,
+              iconcolor:"#fff"
+        }
     },
     marco: {
         radarData: [ 32, 61, 5, 4, 51 ],
@@ -15,7 +31,23 @@ var peopleData = {
             L.latLng(43.7780042,11.2449093),
             L.latLng(43.7701208,11.2672878),
         ],
-        mezzo: 'bicycle'
+        mezzo: 'bicycle',
+        chart_cfg: {
+              dimension:"250",
+              text:"34%",
+              info:"noleggio gratuito bici",
+              width:30,
+              fontsize:38,
+              percent:34,
+              fgcolor:"#61a9dc",
+              bgcolor:"#eee",
+              fill:"#ddd",
+            //   total:200,
+            //   part:35,
+              icon:"long-arrow-up",
+              iconsize:28,
+              iconcolor:"#fff"
+        }
     },
     anita: {
         radarData: [ 40, 45, 37, 64, 5 ],
@@ -31,7 +63,24 @@ var peopleData = {
             L.latLng(43.7701208,11.2672878),
             // L.latLng(43.770723,11.2661737),
         ],
-        mezzo: 'pedestrian'
+        mezzo: 'pedestrian',
+        chart_cfg: {
+              dimension:"250",
+              text:"73%",
+              info:"ingresso museo al 50%",
+              width:30,
+              fontsize:38,
+              percent:73,
+              fgcolor:"#61a9dc",
+              bgcolor:"#eee",
+              fill:"#ddd",
+            //   total:200,
+            //   part:35,
+              icon:"long-arrow-up",
+              iconsize:28,
+              iconcolor:"#fff"
+        },
+        mangiare:true
     },
     anna: {
         radarData: [ 50, 45, 59, 35, 2 ],
@@ -49,7 +98,25 @@ var peopleData = {
             L.latLng(43.7701208,11.2672878),
             // L.latLng(43.770723,11.2661737),
         ],
-        mezzo: 'pedestrian'
+        mezzo: 'pedestrian',
+        chart_cfg: {
+              dimension:"250",
+              text:"98%",
+              info:"visita all'orto botanico",
+              width:30,
+              fontsize:38,
+              percent:98,
+              fgcolor:"#61a9dc",
+              bgcolor:"#eee",
+              fill:"#ddd",
+            //   total:200,
+            //   part:35,
+              icon:"long-arrow-up",
+              iconsize:28,
+              iconcolor:"#fff"
+        },
+        spesa:true,
+        winner:true, path:'anna.png'
     }
 };
 
@@ -74,7 +141,8 @@ var myRadarChart = new Chart(ctx).Radar(data, {});
 
 $(function(){
     $('#radar-container .sc').click(function(e){
-        var person = peopleData[$(e.target).text()];
+        var person_name = $(e.target).text();
+        var person = peopleData[person_name];
 
         data.datasets[0].data = person.radarData;
         myRadarChart = new Chart(ctx).Radar(data, {});
@@ -96,6 +164,31 @@ $(function(){
               summaryTemplate:'<div class="start">{name}</div><div class="info {transitmode}">{distance}, {time}</div>',
               routeWhileDragging: true, show: false
             }).addTo(map);
+        }
+        
+        if (person.mangiare) {
+            $('#food').bootstrapSwitch('state', true);
+        } else {
+            $('#food').bootstrapSwitch('state', false);
+        }
+        if (person.spesa) {
+            $('#shopping').bootstrapSwitch('state', true);
+        } else {
+            $('#shopping').bootstrapSwitch('state', false);
+        }
+        
+        showBadge(person_name);
+    }).hide();
+    
+    $(document).keypress(function(event) {
+        if (event.which == 49) {
+            $('.sc.michele').click();
+        } else if (event.which == 50) {
+            $('.sc.marco').click();
+        } else if (event.which == 51) {
+            $('.sc.anita').click();
+        } else if (event.which == 52) {
+            $('.sc.anna').click();
         }
     });
 })
