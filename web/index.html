@@ -76,11 +76,48 @@
 .switch-wrapper .bootstrap-switch {
   margin: 7% auto;
 }
+
+.profile-card {
+  position: fixed;
+  right: 40%;
+  top: 20%;
+  z-index: 50;
+}
+
+.profile-card .profile-name {
+  position: absolute;
+  color: white;
+  font-size: 7em;
+  text-align: center;
+  top: 150px;
+  left: 100px;
+}
+
+
+.profile-card.side {
+  transition: all 1s;
+  width: 5%;
+  right: 25px;
+  top: 25px;
+}
+
+.profile-card.side img {
+  width: 100%;
+}
+
+.profile-card.side .profile-name {
+  display: none;
+}
+
 </style>
 
   </head>
   <body>
     <div class="container-fluid">
+      <div class="profile-card side visible-lg">
+        <div class="profile-name">Anna</div>
+        <img src="http://lorempixel.com/500/500" class="img-circle" />
+      </div>
       <div id="wrapper">
         <div class="col-lg-8 col-xs-12 map"><div id="map"></div></div>
         <div class="col-lg-4 col-xs-12 sidebar">
@@ -276,23 +313,20 @@ $(function () {
     return tt;
   }
 
-// showBadgeChart({ chart_cfg : {
-//       dimension:"250",
-//       text:"35%",
-//       info:"New Clients",
-//       width:30,
-//       fontsize:38,
-//       percent:35,
-//       fgcolor:"#61a9dc",
-//       bgcolor:"#eee",
-//       fill:"#ddd",
-//       total:200,
-//       part:35,
-//       icon:"long-arrow-up",
-//       iconsize:28,
-//       iconcolor:"#fff"
-// }});
 
+    var $profile = $('.profile-card');
+
+    function setProfile(personName) {
+      var personData = peopleData[personName],
+      $profile_name  = $('.profile-name', $profile);
+      $profile_name.text(personName);
+      $profile_name.css('left', personData.profile_left);
+      $('img', $profile).attr('src', 'img/' + personData.profile_img);
+    }
+
+    function toggleProfile() {
+      $profile.toggleClass('side');
+    }
 
     (function($, viewport){
       var cur_size;
