@@ -1,4 +1,7 @@
 var peopleData = {
+    empty : {
+        radarData: [ 0, 0, 0, 0, 0 ],
+    },
     michele: {
         radarData: [ 10, 5, 7, 8, 71 ],
         sliderData: [ 1, 1, 1, 1, 3 ],
@@ -140,7 +143,7 @@ var data = {
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
-            data: peopleData['anna'].radarData
+            data: peopleData['empty'].radarData
         }
     ]
 };
