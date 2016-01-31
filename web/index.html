@@ -13,6 +13,9 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-slider.min.css" rel="stylesheet">
     <link href="css/bootstrap-switch.min.css" rel="stylesheet">
+
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+
     <link href="css/layout.css" rel="stylesheet">
 
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
@@ -26,6 +29,11 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <style>
+
+/* body { */
+/*     overflow: hidden; */
+/* } */
+
 .slider.slider-vertical {
   height: 100%;
 }
@@ -36,16 +44,27 @@
 
 .slider-wrapper {
   height: 80%;
-  margin: 9% auto;
+  width: 70%;
 }
 
-.switch-wrapper {
-  height: 40%;
-  margin: 30% auto;
+.slider-single {
+  height: 100%;
+  width: 20%;
 }
 
 .slider-wrapper .slider {
   margin: auto 2%;
+}
+
+.slider-single i {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.switch-wrapper {
+  height: 40%;
+  width: 30%;
+  margin: 20% auto;
 }
 
 .switch-wrapper .bootstrap-switch {
@@ -72,16 +91,37 @@
           </div>
           <div class="col-lg-12 col-xs-4 sidebar-widget search">
             <form action="" class="search-form">
-              <div class="slider-wrapper col-xs-6">
-                <input id="sustainability" name="sustainability" data-slider-id='sustainabilitySlider' class="bootstrap-slider float-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
-                <input id="health" name="health" data-slider-id='healthSlider' class="bootstrap-slider float-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
-                <input id="nature" name="nature" data-slider-id='natureSlider' class="bootstrap-slider float-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
-                <input id="beauty" name="beauty" data-slider-id='beautySlider' class="bootstrap-slider float-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
-                <input id="time" name="time" data-slider-id='timeSlider' class="bootstrap-slider float-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
+              <div class="slider-wrapper pull-left">
+                <div class="slider-single pull-left">
+                  <i class="fa fa-leaf fa-2x"></i>
+                  <input id="sustainability" name="sustainability" data-slider-id='sustainabilitySlider' class="bootstrap-slider pull-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
+                </div>
+                <div class="slider-single pull-left">
+                  <i class="fa fa-heartbeat fa-2x"></i>
+                  <input id="health" name="health" data-slider-id='healthSlider' class="bootstrap-slider pull-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
+                </div>
+                <div class="slider-single pull-left">
+                  <i class="fa fa-tree fa-2x"></i>
+                  <input id="nature" name="nature" data-slider-id='natureSlider' class="bootstrap-slider pull-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
+                </div>
+                <div class="slider-single pull-left">
+                  <i class="fa fa-fort-awesome fa-2x"></i>
+                  <input id="beauty" name="beauty" data-slider-id='beautySlider' class="bootstrap-slider pull-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
+                </div>
+                <div class="slider-single pull-left">
+                  <i class="fa fa-clock-o fa-2x"></i>
+                  <input id="time" name="time" data-slider-id='timeSlider' class="bootstrap-slider pull-left" type="text" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical" data-slider-reversed="true" />
+                </div>
               </div>
-              <div class="switch-wrapper col-xs-6">
-                <input type="checkbox" id="food" name="food" class="bootstrap-switch" checked />
-                <input type="checkbox" id="shopping" name="shopping" class="bootstrap-switch" checked />
+              <div class="switch-wrapper pull-left">
+                <div class="col-xs-12 text-center">
+                  <i class="fa fa-cutlery fa-2x"></i>
+                  <input type="checkbox" id="food" name="food" class="bootstrap-switch" checked />
+                </div>
+                <div class="col-xs-12 text-center">
+                  <i class="fa fa-shopping-cart fa-2x"></i>
+                  <input type="checkbox" id="shopping" name="shopping" class="bootstrap-switch" checked />
+                </div>
               </div>
             </form>
           </div>
