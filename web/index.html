@@ -126,7 +126,7 @@
             <div class="badge-chart">
               <!-- <div id="badge" data&#45;dimension="250"></div> -->
             </div>
-            <div class="badge-img"><img src="asd" /></div>
+            <div class="badge-img"><img src="asd" /><h3>Ben fatto! Ti sei guadagnata una visita guidata all'Orto Botanico!</h3></div>
           </div>
           <div class="col-lg-12 col-xs-4 sidebar-widget score">
               <div id="radar-container">
@@ -283,17 +283,18 @@ $(function () {
 
   function showBadge(person) {
     var personData = peopleData[person];
+    showBadgeChart(personData);
     if (personData.winner) {
-      showBadgeImage(personData);
-    } else {
-      showBadgeChart(personData);
+      setTimeout(function(){
+          showBadgeImage(personData);
+      },3000);
     }
   }
 
   function showBadgeImage(personData) {
     $badge_chart.hide();
     $badge_img.show();
-    $badge_img.attr('src', 'img/' + personData.path);
+    $('img',$badge_img).attr('src', 'img/' + personData.path);
   }
 
   function showBadgeChart(personData) {
